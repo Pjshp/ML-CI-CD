@@ -17,5 +17,5 @@ def test_predictions_value_range():
     assert unique_values.issubset(expected_values), f"Predictions contain unexpected values: {unique_values}. Expected values are {expected_values}."
 
 def test_model_accuracy():
-    acc = get_accuracy()
+    accuracy = get_accuracy()
     assert accuracy >= 0.7, f"Model accuracy is below 70%. Current accuracy: {accuracy}."
