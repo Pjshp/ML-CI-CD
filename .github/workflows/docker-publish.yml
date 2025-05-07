@@ -18,10 +18,8 @@ jobs:
         registry: ghcr.io
         username: ${{ secrets.GHCR_USERNAME }}
         password: ${{ secrets.GHCR_TOKEN }}
-
-    - name: Build and push Docker image to GHCR
-      uses: docker/build-push-action@v5
-      with:
-        context: .
-        push: true
-        tags: ghcr.io/${{ secrets.GHCR_USERNAME }}/ml-ci-cd:latest
+        
+    - name: Prepare lowercase repository name
+      id: prepare
+      run: |
+        echo "REPO_NAME=$(echo ${{ secrets.GHCR_USERNAME }} | tr '[:upper:]' '[:lower:]')" >>
